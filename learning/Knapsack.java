@@ -5,14 +5,13 @@
  * return 'YES'
  * otherwise return 'NO'
  */
-package learning;
 
-import java.util.Arrays;
-import java.util.BitSet;
+package learning;
 
 class Knapsack {
     static final int S = 14;
-    static final int[] INPUTS = {1, 2, 4, 7, 8};
+    static final int[] INPUTS = { 1, 2, 4, 7, 8 };
+
     public static void main(String[] args) {
         // approach 1
         // the naive approach is to check all possible combinations
@@ -32,7 +31,7 @@ class Knapsack {
         // and 1 + 2 = 3
         // similarly, the 0th index is marked true by default
         // because a sum of 0 is possible no matter what
-        boolean[] allPossibleSubsetSums = new boolean[S+1];
+        boolean[] allPossibleSubsetSums = new boolean[S + 1];
         allPossibleSubsetSums[0] = true;
         // iterate through all the inputs
         for (int i = 0; i < INPUTS.length; i++) {
@@ -41,7 +40,7 @@ class Knapsack {
             // we have to traverse backwards through the array
             // so that we don't accidently add twice
             for (int j = S; j >= input; j--) {
-                if (allPossibleSubsetSums[j-input])
+                if (allPossibleSubsetSums[j - input])
                     allPossibleSubsetSums[j] = true;
             }
             // we can print the boolean array
@@ -64,12 +63,12 @@ class Knapsack {
         // right shift the bitset an amount equal to the input
         // and perform a logical or with the original bitset
         // follow is the partial sudo code
-        BitSet allPossibleSumsBitSet = new BitSet(S+1);
-        allPossibleSumsBitSet.set(0,true);
-        for (int i = 0; i < INPUTS.length; i++) {
-            int input = INPUTS[i];
-            // copy = allPossibleSumsBitSet >> input
-            // allPossibleSumsBitSet |= copy
-        }
+        // BitSet allPossibleSumsBitSet = new BitSet(S+1);
+        // allPossibleSumsBitSet.set(0,true);
+        // for (int i = 0; i < INPUTS.length; i++) {
+        // int input = INPUTS[i];
+        // copy = allPossibleSumsBitSet >> input
+        // allPossibleSumsBitSet |= copy
+        // }
     }
 }
