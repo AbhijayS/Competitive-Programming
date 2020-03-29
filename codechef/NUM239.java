@@ -8,6 +8,8 @@ class NUM239 {
         int T = scanner.nextInt();
 
         for (int i = 0; i < T; i++) {
+
+            // O(1) solution
             int start = scanner.nextInt();
             int end = scanner.nextInt();
             
@@ -17,15 +19,32 @@ class NUM239 {
             int num9 = sets;
 
             for (int j = start+sets*10; j <= end; j++) {
-                if (j%2 == 0)
+                if (j%10 == 2)
                     num2++;
-                else if (j%3 == 0)
+                else if (j%10 == 3)
                     num3++;
-                else if (j%9 == 0)
+                else if (j%10 == 9)
                     num9++;
             }
 
             System.out.println(num2+num3+num9);
+
+            // O(n) solution
+            // num2 = 0;
+            // num3 = 0;
+            // num9 = 0;
+
+            // for (int j = start; j <= end; j++) {
+            //     if (j%10 == 2)
+            //         num2++;
+            //     else if (j%10 == 3)
+            //         num3++;
+            //     else if (j%10 == 9)
+            //         num9++;
+            // }
+
+            // System.out.println(num2+num3+num9);
+
         }
     }
 }
