@@ -1,4 +1,4 @@
-package codechef;
+package codeforces;
 
 import java.util.Scanner;
 
